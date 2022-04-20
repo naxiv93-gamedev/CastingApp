@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Casting</string>
+    <string name="pelicula">Pelicula</string>
+    <string name="lugar">Lugar</string>
+    <string name="fecha_de_rodaje">Fecha de rodaje</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
