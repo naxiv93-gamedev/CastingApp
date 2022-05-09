@@ -3,40 +3,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/seleccionRodajeFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="ivan.diaz.dominguez.castingapp.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
+        android:id="@+id/seleccionRodajeFragment"
+        android:name="ivan.diaz.dominguez.castingapp.SeleccionRodajeFragment"
+        android:label="seleccion_rodaje_fragment"
+        tools:layout="@layout/seleccion_rodaje_fragment" >
         <action
-            android:id="@+id/first_to_second"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_seleccionRodajeFragment_to_seleccionCandidatos"
+            app:destination="@id/seleccionCandidatos" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="ivan.diaz.dominguez.castingapp.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
+        android:id="@+id/seleccionCandidatos"
+        android:name="ivan.diaz.dominguez.castingapp.SeleccionCandidatos"
+        android:label="seleccion_candidatos_fragment"
+        tools:layout="@layout/seleccion_candidatos_fragment" >
         <action
-            android:id="@+id/second_to_third"
-            app:destination="@id/thirdFragment" />
+            android:id="@+id/action_seleccionCandidatos_to_confirmacionAccion"
+            app:destination="@id/confirmacionAccion" />
     </fragment>
     <fragment
-        android:id="@+id/thirdFragment"
-        android:name="ivan.diaz.dominguez.castingapp.ThirdFragment"
-        android:label="third_fragment"
-        tools:layout="@layout/third_fragment" >
+        android:id="@+id/confirmacionAccion"
+        android:name="ivan.diaz.dominguez.castingapp.ConfirmacionAccion"
+        android:label="confirmacion_accion_fragment"
+        tools:layout="@layout/confirmacion_accion_fragment" >
         <action
-            android:id="@+id/third_to_first"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_confirmacionAccion_to_seleccionRodajeFragment"
+            app:destination="@id/seleccionRodajeFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/blankFragment"
-        android:name="ivan.diaz.dominguez.castingapp.BlankFragment"
-        android:label="fragment_blank"
-        tools:layout="@layout/fragment_blank" />
 </navigation>
