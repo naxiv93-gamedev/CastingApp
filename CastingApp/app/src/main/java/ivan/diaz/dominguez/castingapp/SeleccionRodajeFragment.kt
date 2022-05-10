@@ -58,7 +58,6 @@ class SeleccionRodajeFragment : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         //Al pulsar el botón, navegamos al segundo fragmento.
 
     }

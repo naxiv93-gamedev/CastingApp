@@ -28,7 +28,7 @@ class SeleccionCandidatos : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-            _binding = SeleccionCandidatosFragmentBinding.inflate(inflater, container, false)
+        _binding = SeleccionCandidatosFragmentBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
     }
@@ -36,7 +36,7 @@ class SeleccionCandidatos : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(SeleccionCandidatosViewModel::class.java)
-        // TODO: Use the ViewModel
+        viewModel.getActors()
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
