@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import ivan.diaz.dominguez.castingapp.databinding.SeleccionRodajeFragmentBinding
 
@@ -27,6 +28,7 @@ class SeleccionRodajeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        (activity as AppCompatActivity?)?.supportActionBar?.title = "Introduzca datos de rodaje"
         _binding = SeleccionRodajeFragmentBinding.inflate(inflater, container, false)
         val view = binding.root
         return view

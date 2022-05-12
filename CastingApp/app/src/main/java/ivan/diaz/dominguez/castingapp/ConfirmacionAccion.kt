@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import ivan.diaz.dominguez.castingapp.databinding.ConfirmacionAccionFragmentBinding
@@ -28,6 +29,7 @@ class ConfirmacionAccion : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        (activity as AppCompatActivity?)?.supportActionBar?.title = "Confirme su accion"
         _binding = ConfirmacionAccionFragmentBinding.inflate(inflater, container, false)
         val view = binding.root
         return view

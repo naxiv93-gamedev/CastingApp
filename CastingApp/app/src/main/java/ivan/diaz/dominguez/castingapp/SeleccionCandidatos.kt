@@ -6,11 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
-import androidx.navigation.fragment.NavHostFragment
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import ivan.diaz.dominguez.castingapp.databinding.SeleccionCandidatosFragmentBinding
-import ivan.diaz.dominguez.castingapp.databinding.SeleccionRodajeFragmentBinding
+import ivan.diaz.dominguez.castingapp.ui.ActorListAdapter
+import kotlinx.android.synthetic.main.seleccion_candidatos_fragment.*
 
 class SeleccionCandidatos : Fragment() {
 
@@ -28,7 +30,8 @@ class SeleccionCandidatos : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-            _binding = SeleccionCandidatosFragmentBinding.inflate(inflater, container, false)
+        (activity as AppCompatActivity?)?.supportActionBar?.title = "Seleccione candidatos"
+        _binding = SeleccionCandidatosFragmentBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
     }
@@ -36,7 +39,7 @@ class SeleccionCandidatos : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(SeleccionCandidatosViewModel::class.java)
-        // TODO: Use the ViewModel
+        initUI()
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -50,5 +53,14 @@ class SeleccionCandidatos : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+    private fun initUI(){
+        binding.pokelistRecyclerView.layoutManager = LinearLayoutManager(this.context)
+        binding.pokelistRecyclerView.adapter = ActorListAdapter()
 
+        viewModel.getActors()
+
+        viewModel.pokemonList.observe(this, Observer { list ->
+            (pokelistRecyclerView.adapter as ActorListAdapter).setData(list)
+        })
+    }
 }
